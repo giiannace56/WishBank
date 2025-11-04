@@ -1,5 +1,5 @@
-CREATE DATABASE sistema_golpes;
-USE sistema golpes
+CREATE DATABASE sistema_wishbank;
+USE sistema_wishbank
 
 CREATE TABLE usuarios (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
