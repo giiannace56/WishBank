@@ -1,0 +1,83 @@
+/* Fundo principal */
+.login-container {
+  background-color: #0A0635;
+  height: 100vh;
+  width: 200vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Box central */
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo (escudo) */
+.logo {
+  background: linear-gradient(135deg, #ff6600, #ff3300);
+  padding: 30px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* Título */
+.title {
+  color: white;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Formulário */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.form label {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.form input {
+  background-color: #632e2a;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.form input:focus {
+  background-color: #703530;
+}
+
+/* Botão */
+.form button {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form button:hover {
+  background-color: #e85c00;
+}
