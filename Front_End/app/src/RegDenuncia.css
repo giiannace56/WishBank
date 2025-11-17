@@ -1,0 +1,84 @@
+.denuncia-page {
+  background-color: #F3F3F3;
+  min-height: 100vh;
+  padding-top: 140px; 
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.denuncia-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px 35px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.denuncia-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.denuncia-sub {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.denuncia-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.denuncia-form label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.denuncia-form input,
+.denuncia-form textarea {
+  width: 100%;
+  background-color: #ECECEC;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  outline: none;
+  color: #1a1a1a;
+}
+
+.denuncia-form input:focus,
+.denuncia-form textarea:focus {
+  background-color: #e0dede;
+}
+
+.denuncia-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+.btn-denunciar {
+  width: 100%;
+  background-color: #ff6600;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-denunciar:hover {
+  background-color: #e85c00;
+}
