@@ -18,8 +18,11 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable()) // desativa CSRF pra permitir requisições do front
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ativa CORS
+                .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())) // Necessário para o console H2 em iframe
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/**").permitAll() // por enquanto, libera tudo
+                        .requestMatchers("/h2-console/**").permitAll() // Libera o console H2
+                        .requestMatchers("/usuarios/cadastro", "/usuarios/login").permitAll() // libera endpoints de cadastro e login
+                        .anyRequest().authenticated() // Qualquer outra requisição deve ser autenticada
                 );
 
         return http.build();
@@ -29,7 +32,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
 
-        //colocar as URLs do front-end
+        
         config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
