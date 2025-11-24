@@ -1,11 +1,16 @@
 .denuncia-page {
   background-color: #F3F3F3;
-  min-height: 100vh;
-  padding-top: 140px; 
+  min-height: calc(100vh - 80px); /* compensa o header */
+  margin-top: 80px; /* evita que o header cubra o conteúdo */
+
   display: flex;
-  justify-content: center;
-  padding-bottom: 40px;
+  flex-direction: column;   /* ORGANIZA TUDO EM COLUNA */
+  justify-content: flex-start;
+  align-items: center;      /* CENTRALIZA HORIZONTALMENTE */
+
+  padding: 40px 0;
 }
+
 
 .denuncia-card {
   background: #ffffff;
