@@ -1,7 +1,7 @@
 .empresas-page {
   background-color: #F3F3F3;
   min-height: 100vh;
-  padding-top: 140px; 
+  padding-top: 140px;
   text-align: center;
   padding-bottom: 40px;
 }
@@ -19,70 +19,10 @@
   margin-bottom: 40px;
 }
 
-
 .empresas-list {
   display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
   gap: 25px;
   width: 100%;
-}
-
-.empresa-card {
-  background-color: #FBFBFB;
-  width: 90%;
-  max-width: 600px;    
-  border-radius: 14px;
-  padding: 20px;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-}
-
-.card-header {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: black;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
-  color: black;
-}
-
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;           
-  width: 100%;
-}
-
-.stat {
-  display: flex;
-  align-items: center;     
-  gap: 10px;               
-  text-align: left;
-}
-
-.stat-top {
-  display: flex;
-  flex-direction: column; 
-  line-height: 1.2;
-}
-.stat-num {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.stat-label {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.icon-style {
-  color: #FF7825;
-  font-size: 32px;
 }

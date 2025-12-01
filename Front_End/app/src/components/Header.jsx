@@ -23,7 +23,7 @@ export default function Header() {
             </div>
             <nav>
                 <ul>
-                    <li><Link to="/" className="link-home">Início</Link></li>
+                    <li><Link to="/home" className="link-home">Início</Link></li>
                     <li><Link to="/relatorioempresas">Empresas</Link></li>
                     <li>
                         <button className="btn-denuncia" onClick={handleDenunciaClick}>

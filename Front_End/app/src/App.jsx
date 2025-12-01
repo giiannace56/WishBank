@@ -12,8 +12,9 @@ export default function App() {
       <Route path="/cadastro" element={<CadastroUsuario />} />
       <Route path="/relatorioempresas" element={<RelatorioEmps />} />
       <Route path="/registrardenuncia" element={<RegDenuncia />} />
+      <Route path="/home" element={<Home />} />
 
-      <Route path="*" element={<Home />} />
+      <Route path="*" element={<Login />} />
     </Routes>
   );
 }
