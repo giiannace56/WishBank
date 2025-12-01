@@ -1,32 +1,32 @@
 package com.example.demo.service;
 
-import com.example.demo.model.Empresa;
-import com.example.demo.model.Usuario;
+import com.example.demo.model.EmpresaResumo;
 import com.example.demo.repository.EmpresaRepository;
-import com.example.demo.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmpresaService {
 
     private final EmpresaRepository empresaRepository;
-    private final UsuarioRepository usuarioRepository;
 
-    public EmpresaService(EmpresaRepository empresaRepository, UsuarioRepository usuarioRepository) {
+    public EmpresaService(EmpresaRepository empresaRepository) {
         this.empresaRepository = empresaRepository;
-        this.usuarioRepository = usuarioRepository;
     }
 
-    public Empresa cadastrarEmpresa(Long usuarioId, Empresa empresa) {
-        Usuario usuario = usuarioRepository.findById(usuarioId)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-        empresa.setUsuario(usuario);
-        return empresaRepository.save(empresa);
-    }
+    public List<EmpresaResumo> listarResumoEmpresas() {
+        // busca raw data do banco: [nome, COUNT(d), SUM(d.valorPerdido)]
+        List<Object[]> resumo = empresaRepository.buscarResumoEmpresas();
 
-    public List<Empresa> listarEmpresas(Long usuarioId) {
-        return empresaRepository.findByUsuarioId(usuarioId);
+        return resumo.stream()
+                .map(r -> new EmpresaResumo(
+                        null, // id não estamos usando no resumo
+                        (String) r[0],               // nome da empresa
+                        ((Long) r[1]).intValue(),    // número de denúncias
+                        r[2] != null ? ((Double) r[2]) : 0.0 // total perdido
+                ))
+                .collect(Collectors.toList());
     }
 }

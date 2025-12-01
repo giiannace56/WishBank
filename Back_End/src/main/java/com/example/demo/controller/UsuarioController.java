@@ -8,21 +8,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/auth")
-public class AuthController {
+@RequestMapping("/api/usuarios")
+@CrossOrigin(origins = "http://localhost:5173")
+
+public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    public AuthController(UsuarioService usuarioService) {
+    public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
     @PostMapping("/cadastro")
     public ResponseEntity<?> cadastrar(@RequestBody Usuario usuario) {
         try {
-            Usuario salvo = usuarioService.cadastrar(usuario);
-            salvo.setSenha(null);
-            return ResponseEntity.ok(salvo);
+            Usuario novoUsuario = usuarioService.cadastrar(usuario);
+            return ResponseEntity.ok(novoUsuario);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
@@ -37,5 +38,10 @@ public class AuthController {
                     return ResponseEntity.ok(u);
                 })
                 .orElse(ResponseEntity.status(401).body("Credenciais inválidas"));
+    }
+
+    @GetMapping
+    public String status() {
+        return "API de denúncias funcionando";
     }
 }
