@@ -2,28 +2,32 @@ CREATE DATABASE sistema_wishbank;
 USE sistema_wishbank;
 
 CREATE TABLE usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE empresas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome_fantasia VARCHAR(150) NOT NULL,
-    cnpj VARCHAR(30) NOT NULL,
-    usuario_id INT NOT NULL,
+    cnpj VARCHAR(30) NULL,
+    usuario_id BIGINT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
 
 CREATE TABLE denuncias (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome_empresa VARCHAR(150) NOT NULL,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    empresa_id BIGINT NOT NULL,
     tipo_golpe VARCHAR(150) NOT NULL,
     valor_perdido DECIMAL(10,2),
     data_golpe DATE NOT NULL,
     nome_vitima VARCHAR(150) NOT NULL,
-    email_vitima VARCHAR(150) NOT NULL
+    email_vitima VARCHAR(150) NOT NULL,
+    FOREIGN KEY (empresa_id) REFERENCES empresas(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
+
